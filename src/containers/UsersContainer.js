@@ -15,19 +15,17 @@ class UsersContainer extends React.Component {
   }
 
   sortAsc(){
-    this.state.users.sort((a, b) => (a.dob.age > b.dob.age) ? 1 : -1)
+    let sorted = this.state.users.sort((a, b) => new Date(b.dob.date)  - new Date(a.dob.date))
+    this.setState({ users: sorted })
   }
 
   sortDesc(){
-    this.state.users.sort((a, b) => (a.dob.age < b.dob.age) ? 1 : -1)
+    let sorted = this.state.users.sort((a, b) => new Date(a.dob.date)  - new Date(b.dob.date))
+    this.setState({ users: sorted })
   }
 
   getUsers(){
-    fetch(`https://randomuser.me/api/?results=20&nat=us,ca&inc=gender,name,location,dob`,
-      {
-        mode: 'no-cors'
-      }
-    )
+    fetch(`https://randomuser.me/api/?results=20&nat=us,ca&inc=gender,name,location,dob,picture`)
       .then(response => {
         if (response.ok) {
           return response;
@@ -52,12 +50,13 @@ class UsersContainer extends React.Component {
     let userCards = this.state.users.map((user) => {
       return(
         <UserCard
-          key={user.name}
+          key={user.name.last}
           firstName={user.name.first}
           lastName={user.name.last}
           gender={user.gender}
           country={user.location.country}
           dob={user.dob.date}
+          profilePicture={user.picture.large}
         />
       )
     })

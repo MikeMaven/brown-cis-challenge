@@ -1,6 +1,5 @@
 import React from 'react';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.css';
+import './App.scss';
 import HomeContainer from './containers/HomeContainer';
 
 function App() {
