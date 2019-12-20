@@ -13,12 +13,12 @@ class UserCard extends React.Component {
   }
 
   dateOfBirth(){
-    return moment(this.props.dob).format('MMMM Do YYYY')
+    return moment(this.props.dob, 'YYYY-MM-DDThh:mm:ssZ').format('MMMM Do YYYY')
   }
 
   birthday(){
-    let bdayThisYear = moment().format("YYYY[-]") + moment(this.props.dob).format("M[-]D")
-    let evaluation = moment(bdayThisYear).diff(moment(), 'days')
+    let bdayThisYear = moment().format("YYYY[-]") + moment(this.props.dob, 'YYYY-MM-DDThh:mm:ssZ').format("M[-]D")
+    let evaluation = moment(bdayThisYear, 'YYYY-M-D').diff(moment(), 'days')
 
     if (evaluation === 0) {
       return "Today!"
@@ -36,7 +36,7 @@ class UserCard extends React.Component {
     let bday = this.birthday()
     return(
       <div>
-        <Card className="h-100 col-sm-4" bg="dark" text="white" className="user-card">
+        <Card className="h-100 col-sm-4 user-card" bg="dark" text="white">
           <Card.Img variant="top" src={this.props.profilePicture}/>
           <Card.Title className="emphasized-text">{this.props.firstName}</Card.Title>
           <Card.Subtitle className="mb-2 text-muted emphasized-text">{this.props.lastName}</Card.Subtitle>
