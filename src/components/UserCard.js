@@ -36,7 +36,7 @@ class UserCard extends React.Component {
     let bday = this.birthday()
     return(
       <div>
-        <Card className="h-100 col-sm-4 user-card" bg="dark" text="white">
+        <Card className="h-90 user-card" bg="dark" text="white">
           <Card.Img variant="top" src={this.props.profilePicture}/>
           <Card.Title className="emphasized-text">{this.props.firstName}</Card.Title>
           <Card.Subtitle className="mb-2 text-muted emphasized-text">{this.props.lastName}</Card.Subtitle>
