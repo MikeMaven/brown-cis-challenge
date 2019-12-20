@@ -30,7 +30,7 @@ class Hero extends React.Component {
         <Jumbotron className="bg-transparent">
           <h1 className="emphasized-text">Hello, Brown University!</h1>
           <p className="regular-text">
-            Welcome to my app, which collects randomly generated user data from the Random User Generator public API, and display it here in a fun and friendly way of viewing it.
+            Welcome to my app, which collects randomly generated user data from the Random User Generator public API, and displays it here in a fun and friendly way of viewing it.
           </p>
           <Button onClick={this.showToast} variant="success" className="emphasized-text">
             Hire Mike
