@@ -47,10 +47,10 @@ class UsersContainer extends React.Component {
   }
 
   render(){
-    let userCards = this.state.users.map((user) => {
+    let userCards = this.state.users.map((user, index) => {
       return(
         <UserCard
-          key={user.name.last}
+          key={index}
           firstName={user.name.first}
           lastName={user.name.last}
           gender={user.gender}
