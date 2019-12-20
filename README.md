@@ -1,5 +1,9 @@
 This project is a challenge for Brown CIS
 
+Please clone the source code, cd into the directory, and run `yarn install` to install the necessary dependencies.
+
+Then, use `yarn start` to boot the development server.
+
 ## Available Scripts
 
 In the project directory, you can run:
