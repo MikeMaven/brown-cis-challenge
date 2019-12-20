@@ -1,4 +1,5 @@
 import React from 'react';
+import UserCard from '../components/UserCard'
 
 class UsersContainer extends React.Component {
   constructor(props) {
@@ -27,8 +28,21 @@ class UsersContainer extends React.Component {
   }
 
   render(){
+    let userCards = this.state.users.map((user) => {
+      return(
+        <UserCard
+          key={user.name}
+          firstName={user.name.first}
+          lastName={user.name.last}
+          gender={user.gender}
+          country={user.location.country}
+          dob={user.dob.date}
+        />
+      )
+    })
     return(
-      <div>
+      <div className="users-container">
+       {userCards}
       </div>
     )
   }
