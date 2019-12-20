@@ -16,3 +16,7 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+.hire-toast {
+  position: absolute;
+}

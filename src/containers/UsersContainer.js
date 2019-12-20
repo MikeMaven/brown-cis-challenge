@@ -10,7 +10,11 @@ class UsersContainer extends React.Component {
   }
 
   componentDidMount(){
-    fetch(`https://randomuser.me/api/?results=20&nat=us,ca&inc=gender,name,location,dob`)
+    fetch(`https://randomuser.me/api/?results=20&nat=us,ca&inc=gender,name,location,dob`,
+      {
+        mode: 'no-cors'
+      }
+    )
       .then(response => {
         if (response.ok) {
           return response;
@@ -41,8 +45,10 @@ class UsersContainer extends React.Component {
       )
     })
     return(
-      <div className="users-container">
-       {userCards}
+      <div>
+        <div className="users-container">
+          {userCards}
+        </div>
       </div>
     )
   }

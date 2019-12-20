@@ -54,7 +54,7 @@ class AppNav extends React.Component {
           </Form>
         </Navbar>
         <Alert show={this.state.showAlert} variant="success">
-          Thanks! We've sent Mike your offer.
+          Thanks! We've sent Mike your offer. (Just kidding. You'll have to email him.)
         </Alert>
       </div>
     )
