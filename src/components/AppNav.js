@@ -32,7 +32,7 @@ class AppNav extends React.Component {
       <div>
         <Navbar bg="dark" variant="dark" className="justify-content-between">
           <Nav>
-            <Navbar.Brand href="/">Brown CIS Challenge</Navbar.Brand>
+            <Navbar.Brand className="emphasized-text" href="/">Brown CIS Challenge</Navbar.Brand>
             <Nav.Item>
               <Nav.Link href="/">Home</Nav.Link>
             </Nav.Item>

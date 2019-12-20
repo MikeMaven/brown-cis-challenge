@@ -1,5 +1,7 @@
 import React from 'react';
-import UserCard from '../components/UserCard'
+import UserCard from '../components/UserCard';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Button from 'react-bootstrap/Button';
 
 class UsersContainer extends React.Component {
   constructor(props) {
@@ -7,9 +9,20 @@ class UsersContainer extends React.Component {
     this.state = {
       users: []
     }
+    this.getUsers = this.getUsers.bind(this)
+    this.sortAsc = this.sortAsc.bind(this)
+    this.sortDesc = this.sortDesc.bind(this)
   }
 
-  componentDidMount(){
+  sortAsc(){
+    this.state.users.sort((a, b) => (a.dob.age > b.dob.age) ? 1 : -1)
+  }
+
+  sortDesc(){
+    this.state.users.sort((a, b) => (a.dob.age < b.dob.age) ? 1 : -1)
+  }
+
+  getUsers(){
     fetch(`https://randomuser.me/api/?results=20&nat=us,ca&inc=gender,name,location,dob`,
       {
         mode: 'no-cors'
@@ -31,6 +44,10 @@ class UsersContainer extends React.Component {
         .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  componentDidMount(){
+    this.getUsers();
+  }
+
   render(){
     let userCards = this.state.users.map((user) => {
       return(
@@ -46,6 +63,11 @@ class UsersContainer extends React.Component {
     })
     return(
       <div>
+        <p className="ml-5">Sort by age:</p>
+        <ButtonGroup className="ml-5 regular-text" aria-label="sorting-buttons">
+          <Button variant="primary" onClick={this.sortAsc}>Asc</Button>
+          <Button variant="primary" onClick={this.sortDesc}>Desc</Button>
+        </ButtonGroup>
         <div className="users-container">
           {userCards}
         </div>

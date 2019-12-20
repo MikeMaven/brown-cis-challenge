@@ -19,20 +19,20 @@ class Hero extends React.Component {
   render(){
     return(
       <div>
-        <Toast className="hire-toast bg-success" onClose={() => this.showToast()} show={this.state.show} delay={3000} autohide>
-          <Toast.Header closeButton={false}>
-            Woohoo!
+        <Toast className="hire-toast bg-primary" onClose={() => this.showToast()} show={this.state.show} delay={3000} autohide>
+          <Toast.Header className="bg-primary" closeButton={false}>
+            <span className="text-white regular-text">Woohoo!</span>
           </Toast.Header>
-          <Toast.Body>
+          <Toast.Body className="regular-text">
             Thanks, we've sent your offer to Mike! (Just kidding, you'll have to email him.)
           </Toast.Body>
         </Toast>
         <Jumbotron className="bg-transparent">
-          <h1>Hello, Brown University!</h1>
-          <p>
-            Welcome to my app, which will collect randomly generated user data from the Random User Generator public API, and display it here in a fun and friendly way of viewing it.
+          <h1 className="emphasized-text">Hello, Brown University!</h1>
+          <p className="regular-text">
+            Welcome to my app, which collects randomly generated user data from the Random User Generator public API, and display it here in a fun and friendly way of viewing it.
           </p>
-          <Button onClick={this.showToast} variant="success">
+          <Button onClick={this.showToast} variant="success" className="emphasized-text">
             Hire Mike
           </Button>
         </Jumbotron>
